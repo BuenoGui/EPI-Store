@@ -116,7 +116,6 @@ footer {
 }
 
 .tabela-itens {
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -133,6 +132,10 @@ footer {
 .item-container {
     display: flex;
     padding: 8px;
+}
+
+.cart-item {
+    height: 80%;
 }
 
 .cart-item * {
