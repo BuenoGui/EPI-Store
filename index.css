@@ -100,6 +100,7 @@ footer {
     max-width: 60%;
 }
 
+
 .pedido form {
     margin-top: 4%;
     margin-left: 9%;
@@ -132,13 +133,18 @@ footer {
 .item-container {
     display: flex;
     padding: 8px;
+    margin: 8px;
 }
 
 .cart-item {
     height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .cart-item * {
+    margin: 4px;
     padding: 4px 0;
 }
 
