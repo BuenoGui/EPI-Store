@@ -1,50 +1,66 @@
-$(document).ready (function() {
-    let Carrinho = [];
-    let Linhas = "";
-    let PrecoTotal = 0
+$(document).ready(function() {
+    let Carrinho = {};
+    let PrecoTotal = 0;
 
-        $('#produtos button').click( function() {
+    $('#produtos button').click(function() {
+        AtualizarTotal($(this));
+        AtualizarTabela();
+    });
 
-            AtualizarTotal($(this));
-            AtualizarTabela();
-        })
+    function AtualizarTabela() {
+        const corpoCarrinho = document.querySelector(".tabela-itens");
+        corpoCarrinho.innerHTML = "";
 
-    function AtualizarTabela () {
-        const corpoCarrinho = document.querySelector(".tabela-itens")
-        corpoCarrinho.innerHTML = Linhas;
-    }
-
-    function AtualizarTotal (button) {
-
-    const ItemEscolhido = button.parent().find('h3').text();
-    const PrecoEscolhido = button.parent().find('#valor').text().replace(",",".");
-    const FotoEscolhida = button.parent().find('img').attr('src');
-
-        let Item = '<div class= "item-container">';
-        Item += `<img src="${FotoEscolhida}">`
-        Item += '<div class="cart-item">'
-        Item += `<strong>${ItemEscolhido}</strong>`
-        Item += `<h3>R$ ${PrecoEscolhido}</h3>`
-        Item += '</div>'
-        Item += '</div>'
-
-        Linhas += Item
-        Carrinho += ItemEscolhido
-
-        if(Carrinho.includes(ItemEscolhido.value)) {
-            
+        for (let item in Carrinho) {
+            let itemHtml = '<div class="item-container">';
+            itemHtml += `<img src="${Carrinho[item].foto}">`;
+            itemHtml += '<div class="cart-item">';
+            itemHtml += `<strong>${item}</strong>`;
+            itemHtml += `<h3>R$ ${Carrinho[item].preco.toFixed(2).replace(".", ",")}</h3>`;
+            itemHtml += `<p>Quantidade: ${Carrinho[item].quantidade}</p>`;
+            itemHtml += '</div>';
+            itemHtml += '</div>';
+            corpoCarrinho.innerHTML += itemHtml;
         }
-    
-    let PrecoNum = parseFloat(PrecoEscolhido);
-    PrecoTotal += PrecoNum
-
-    const Total = document.getElementById("total")
-    Total.innerHTML = `Total: R$ ${PrecoTotal.toFixed(2).replace(".",",")}`
-    
-
-    console.log(Carrinho)
-
     }
 
+    function AtualizarTotal(button) {
+        const ItemEscolhido = button.parent().find('h3').text();
+        const PrecoEscolhido = parseFloat(button.parent().find('#valor').text().replace(",", "."));
+        const FotoEscolhida = button.parent().find('img').attr('src');
 
-})
+        if (Carrinho[ItemEscolhido]) {
+            Carrinho[ItemEscolhido].quantidade += 1;
+        } else {
+            Carrinho[ItemEscolhido] = {
+                quantidade: 1,
+                preco: PrecoEscolhido,
+                foto: FotoEscolhida
+            };
+        }
+
+        PrecoTotal += PrecoEscolhido;
+        const Total = document.getElementById("total");
+        Total.innerHTML = `Total: R$ ${PrecoTotal.toFixed(2).replace(".", ",")}`;
+
+        console.log(Carrinho);
+    }
+
+    //Tudo pra cima é á logica das branchs anteriores mas pensadas do 0 para adicionar a quantidade de itens no carrinho
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+});

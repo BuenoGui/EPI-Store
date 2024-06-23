@@ -127,11 +127,12 @@ footer {
 
 .tabela-itens img {
     max-width: 88px;
-    height: auto;
+    max-height: 92px ;
 }
 
 .item-container {
     display: flex;
+    align-items: center;
     padding: 8px;
     margin: 8px;
 }
