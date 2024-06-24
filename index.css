@@ -156,3 +156,11 @@ footer {
 .final {
     margin-top: 80px;
 }
+
+#nome-error,
+#email-error,
+#num-error {
+    font-weight: 650;
+    padding-top: 2px;
+    padding-bottom: 4px;
+}
