@@ -71,6 +71,8 @@ nav a {
     flex-wrap: wrap;
     max-width: 100%;
     justify-content: center;
+    justify-content: center;
+
 }
 
 #produtos ul li p {
@@ -163,4 +165,108 @@ footer {
     font-weight: 650;
     padding-top: 2px;
     padding-bottom: 4px;
+}
+
+@media screen and (max-width: 640px) {
+
+    .container-fluid nav a {
+        font-size: 0.8em;
+    }
+
+    .container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container img {
+        max-width: 80%;
+        padding: 4% 0 
+        
+    }
+
+    #produtos ul li {
+        max-width: 80%;
+        padding: 10% 0 ;
+    }
+
+    #produtos ul {
+        padding: 0;
+    }
+
+    .final {
+        display: flex;
+        flex-direction: column;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    form input {
+        width: 100%;
+    }
+
+    .final section {
+        width: 100%;
+    }
+
+    .pedido {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pedido div form {
+        margin-left: 0%;
+        margin-top: 6%;
+        max-width: 100%;
+    }
+    
+
+    .pedido div form input {
+        max-width: 100%;
+    }
+
+    .campo-form  {
+        max-width: 100%;
+    }
+}
+
+@media screen and (min-width: 641px) and (max-width: 1023px) { 
+
+    body {
+        display: block;
+    }
+
+    .container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container img {
+        max-width: 60%;
+        padding: 4% 0 
+        
+    }
+
+    #produtos ul li {
+        max-width: 40%;
+        padding: 10% 0 ;
+    }
+
+    #produtos ul {
+        padding: 0;
+    }
+
+    .final {
+        margin: 3,5% 0;
+    }
+
+    .campo-form  {
+        max-width: 70%;
+    }
 }

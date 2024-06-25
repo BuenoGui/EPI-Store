@@ -46,72 +46,31 @@ $(document).ready(function() {
 
     //Tudo pra cima é á logica das branchs anteriores mas pensadas do 0 para adicionar a quantidade de itens no carrinho
 
-    function Validar () {
-        $('form').validate({
-            rules: {
-            nome: {
-                required: true
-            },
-            email: {
-                required: true
-            },
-            num: {
-                required: true
-            }
-        },
-        messages: {
-            nome: "Por favor, me diga seu nome",
-            email: "Por favor coloque um email de confirmação",
-            num: "Me diga um telefone para contato"
-        }
-})
-    }
-
-
-
-
-    $(".pedido button").click(function(){
+    $(".pedido button").click(function(event){
         if(Object.keys(Carrinho).length === 0) {
             event.preventDefault();
             alert("Por favor coloque ao menos um item para poder prosseguir");
-        } else {
-            Validar();
-        }
+            }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            $('form').validate({
+                rules: {
+                nome: {
+                    required: true
+                },
+                email: {
+                    required: true
+                },
+                num: {
+                    required: true
+                }
+            },
+            messages: {
+                nome: "Por favor, me diga seu nome",
+                email: "Por favor coloque um email de confirmação",
+                num: "Me diga um telefone para contato"
+            }
+            })
 
     })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 })
